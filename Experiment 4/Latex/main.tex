@@ -76,7 +76,7 @@ Tools used on this experiment:
         \item 74xx02 - Quadruple 2-input Positive NOR Gates
         \item 74xx04 - Hex Inverters
         \item 74xx75 - Quadruple Bistable D Type Latches
-        \item – 74xx165 - 8-Bit Parallel Input/Serial Output Shift Register
+        \item 74xx165 - 8-Bit Parallel Input/Serial Output Shift Register
     \end{itemize}
 \end{itemize}
 \newpage
@@ -91,7 +91,7 @@ Tools used on this experiment:
             \begin{tabular}{c c | c c}
                 R & S & Q & $Q_{not}$ \\
                 \hline 
-                0 & 0 & 1/0 & 0/1 \\
+                0 & 0 & Q & $Q_{not}$ \\
                 0 & 1 & 1 & 0 \\
                 1 & 0 & 0 & 1 \\
                 1 & 1 & 0(INVALID) & 0(INVALID) \\
@@ -108,11 +108,11 @@ Tools used on this experiment:
             \begin{tabular}{c c c | c c}
                 E & S & R & Q & $Q_{not}$ \\
                 \hline 
-                0 & 0 & 0 & 1/0 & 0/1 \\
-                0 & 0 & 1 & 1/0 & 0/1 \\
-                0 & 1 & 0 & 1/0 & 0/1 \\
-                0 & 1 & 1 & 1/0 & 0/1 \\
-                1 & 0 & 0 & 1/0 & 0/1 \\
+                0 & 0 & 0 & Q & $Q_{not}$ \\
+                0 & 0 & 1 & Q & $Q_{not}$ \\
+                0 & 1 & 0 & Q & $Q_{not}$ \\
+                0 & 1 & 1 & Q & $Q_{not}$ \\
+                1 & 0 & 0 & Q & $Q_{not}$ \\
                 1 & 0 & 1 & 0 & 1 \\
                 1 & 1 & 0 & 1 & 0  \\
                 1 & 1 & 1 & 0(INVALID) & 0(INVALID) \\
@@ -125,6 +125,18 @@ Tools used on this experiment:
         A negative edge triggered D type flip-flop is implemented using D latches. (And a bonus positive edge triggered)
         \circuit{D Flip Flop}
 
+        \begin{center}
+            \begin{tabular}{c c | c c}
+                CLK & D & Q & $Q_{not}$ \\
+                \hline 
+                $\uparrow$ & 0 & Q & $Q_{not}$ \\
+                $\uparrow$ & 1 & Q & $Q_{not}$ \\
+                $\downarrow$ & 0 & 0 & 1 \\
+                $\downarrow$ & 1 & 1 & 0 \\
+            \end{tabular}
+        \end{center}
+        {\centering Truth Table of negative edge triggered D type flip-flop\\}
+        
     \subsection{Part 4}
         In this section, a pulse generator is implemented using a shift register. After the circuit is built, various outputs are generated.
         \circuit{Shift Register}
